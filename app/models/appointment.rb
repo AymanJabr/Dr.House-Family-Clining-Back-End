@@ -1,4 +1,7 @@
 class Appointment < ApplicationRecord
+    validates :appointment_begin, uniqueness: true
+    validates :appointment_end, uniqueness: true
+
     belongs_to :user
 
     scope :appointments_booked, -> { where(booked) }
